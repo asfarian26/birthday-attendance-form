@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aniq Danial's Birthday</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e6f2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #3399ff;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3399ff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #267acc;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-style: italic;
+            color: #ff4d4d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Aniq Danial's Birthday 🎉</h1>
+        <p>Please answer these questions</p>
+
+        <form action="https://formspree.io/f/xyzplval" method="POST">
+            <label>Are you Aniq Danial?</label>
+            <select name="is_aniq" id="is_aniq" onchange="checkAniq()" required>
+                <option value="">--Select--</option>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+            </select>
+
+            <div id="not_invited" class="hidden message">
+                You're not invited.
+            </div>
+
+            <div id="coming_section" class="hidden">
+                <label>Are you coming for this celebration?</label>
+                <select name="coming" id="coming" onchange="checkComing()">
+                    <option value="">--Select--</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div id="reason_section" class="hidden">
+                <label>Give me the reasons:</label>
+                <input type="text" name="reason">
+            </div>
+
+            <div id="submit_btn" class="hidden">
+                <button type="submit">Submit 🎂</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function checkAniq() {
+            const value = document.getElementById("is_aniq").value;
+            if (value === "No") {
+                document.getElementById("not_invited").classList.remove("hidden");
+                document.getElementById("coming_section").classList.add("hidden");
+                document.getElementById("reason_section").classList.add("hidden");
+                document.getElementById("submit_btn").classList.add("hidden");
+            } else if (value === "Yes") {
+                document.getElementById("not_invited").classList.add("hidden");
+                document.getElementById("coming_section").classList.remove("hidden");
+            } else {
+                document.getElementById("not_invited").classList.add("hidden");
+                document.getElementById("coming_section").classList.add("hidden");
+            }
+        }
+
+        function checkComing() {
+            const value = document.getElementById("coming").value;
+            if (value === "No") {
+                document.getElementById("reason_section").classList.remove("hidden");
+                document.getElementById("submit_btn").classList.remove("hidden");
+            } else if (value === "Yes") {
+                document.getElementById("reason_section").classList.add("hidden");
+                document.getElementById("submit_btn").classList.remove("hidden");
+            } else {
+                document.getElementById("reason_section").classList.add("hidden");
+                document.getElementById("submit_btn").classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+</html>
