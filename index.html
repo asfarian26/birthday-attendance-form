@@ -3,6 +3,7 @@
 <head>
     <title>Aniq Danial's Birthday</title>
     <style>
+      
         body {
             font-family: 'Segoe UI', sans-serif;
             background-color: #e6f2ff;
@@ -15,24 +16,22 @@
 
         .container {
             background-color: white;
-            padding: 40px 30px;
-            border-radius: 15px;
+            padding: 40px;
+            border-radius: 20px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            width: 90%;
-            max-width: 400px;
+            width: 100%;
+            max-width: 450px;
             text-align: center;
         }
 
         h1 {
             color: #3399ff;
             margin-bottom: 10px;
-            font-size : 1.8 rem;
         }
 
         p {
             color: #666;
             margin-bottom: 20px;
-            font-size : 16px;
         }
 
         label {
@@ -88,8 +87,9 @@
             <label>Are you Aniq Danial?</label>
             <select name="is_aniq" id="is_aniq" onchange="checkAniq()" required>
                 <option value="">--Select--</option>
-                <option value="No">No</option>
                 <option value="Yes">Yes</option>
+                <option value="No">No</option>
+                
             </select>
 
             <div id="not_invited" class="hidden message">
@@ -149,4 +149,6 @@
     </script>
 </body>
 </html>
+
+
 
